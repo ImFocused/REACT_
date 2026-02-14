@@ -4,13 +4,16 @@ import viteLogo from '/vite.svg'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
       <h1>
         HELLO WORLD 
       </h1>
+      <h3>
+        This is my first React App
+      </h3>
     </>
   )
 }

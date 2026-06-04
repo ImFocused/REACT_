@@ -12,7 +12,8 @@ function App() {
         HELLO WORLD 
       </h1>
       <h3>
-        This is my first React App
+        This is my first React App  //  {username} here we use those format for dynamic data in react 
+                                    // this is called as evaluated expression here only calling is possible not solving expressn
       </h3>
     </>
   )

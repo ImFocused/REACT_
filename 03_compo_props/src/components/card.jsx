@@ -1,5 +1,5 @@
-import React from 'react';
-function Card({username, btntext, someobj}) {   // here we can also write props instead of username , btntext and someobj and then we can access it using props.username , props.btntext and props.someobj
+import React from 'react';            // load more is default value if not given by any
+function Card({username, btntext="load more" , someobj}) {   // here we can also write props instead of username , btntext and someobj and then we can access it using props.username , props.btntext and props.someobj
 
   console.log(someobj)
   console.log(btntext)

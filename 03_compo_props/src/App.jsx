@@ -18,9 +18,9 @@ function App() {
         Tailwind Test 
       </h1>
 
-      <Card username="PJ" someobj={myobj}/>   
+      <Card username="PJ" btntext="click me" someobj={myobj}/>   
       {/* // here we can pass objects , arrays , strings in the form of {} and we can access it in the card.jsx file using props */}
-      <Card username = "bruh" someobj={myobj}/>
+      <Card username = "bruh" btntext="read me" someobj={myobj}/>
       
       
           

@@ -36,6 +36,12 @@ function App() {
           style={{backgroundColor : "yellow"}}>YELLOW
 
           </button>
+
+          <button 
+          onClick={()=>setColor("Lavender")}className="outline-none px-4 rounded-full text-black shadow-lg justify-center"
+          style={{backgroundColor : "Lavender"}}>LAVENDER
+
+          </button>
           
 
         </div>

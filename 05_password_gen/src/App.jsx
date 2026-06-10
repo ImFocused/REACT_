@@ -3,15 +3,16 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 
 
 function App() {
-  const [length, setLength] = useState(8)
+  const [length, setLength] = useState(8) // most basic 1st hook for state management (curr_val,set_fn)
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
 
   //useRef hook
-  const passwordRef = useRef(null)
+  const passwordRef = useRef(null) // null = default value for ref
+   // used to get reference of the input field to copy the password to clipboard
 
-  const passwordGenerator = useCallback(() => {
+  const passwordGenerator = useCallback(() => {  // 2nd hook used to memorize the function dependencies also to avoid the re-rendering of the whole component when we change the state of any parameter
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numberAllowed) str += "0123456789"
@@ -29,12 +30,13 @@ function App() {
   }, [length, numberAllowed, charAllowed, setPassword])
 
   const copyPasswordToClipboard = useCallback(() => {
-    passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 20);
-    window.navigator.clipboard.writeText(password)
+    passwordRef.current?.select();  // this s is for decoration of input field
+    passwordRef.current?.setSelectionRange(0, 20); // gives us range for optimization of copied work
+    // here last value of range is excluded #rule
+    window.navigator.clipboard.writeText(password)  // this only is doing copy work
   }, [password])
 
-  useEffect(() => {  // if anything changes or updates run the function again
+  useEffect(() => {  // 3rd hook if anything changes or updates runs the function again
     passwordGenerator()
   }, [length, numberAllowed, charAllowed, passwordGenerator])
   return (
@@ -48,7 +50,7 @@ function App() {
             className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
-            ref={passwordRef}
+            ref={passwordRef} // here the ref hook got the ref of input field(password) and value changed from null to ts
         />
         <button
         onClick={copyPasswordToClipboard}
@@ -74,7 +76,7 @@ function App() {
           defaultChecked={numberAllowed}
           id="numberInput"
           onChange={() => {
-              setNumberAllowed((prev) => !prev);
+              setNumberAllowed((prev) => !prev);  // this is a technique where we use prev value using a callback fn
           }}
       />
       <label htmlFor="numberInput">Numbers</label>
@@ -85,7 +87,7 @@ function App() {
               defaultChecked={charAllowed}
               id="characterInput"
               onChange={() => {
-                  setCharAllowed((prev) => !prev )
+                  setCharAllowed((prev) => !prev )  // same here we can write anything in the place of prev
               }}
           />
           <label htmlFor="characterInput">Characters</label>

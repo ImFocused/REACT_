@@ -1,9 +1,11 @@
 import { useEffect,useState } from "react";
 
-function useCurrencyinfo(currency){ 
+function useCurrencyinfo(currency){
+    
+    const[data,setData] = useState({});
     useEffect(()=>{ //here useeffect is used to fetch the data from the api whenever the currency value changes
 
-        const[data,setData] = useState({});
+        
 
         fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`)
         .then((res)=> res.json())   // convert the response to json format as it comes in string format

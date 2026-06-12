@@ -8,32 +8,48 @@ import Home from './components/Home/home'
 import { createBrowserRouter } from "react-router-dom";
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/contact.jsx'
+import { createRoutesFromElements, Route } from 'react-router-dom'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element : <Layout/>,
-    children : [
-      {
-        path : "",
-        element : <Home/>
 
-      },
-      {
+// method 1 : using createBrowserRouter and RouterProvider to set up routing in our app (nested)
 
-        path : "/about",
-        element : <About/>
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element : <Layout/>,
+//     children : [
+//       {
+//         path : "",
+//         element : <Home/>
 
-      },
-      {
+//       },
+//       {
 
-        path : "/contact",
-        element : <Contact/>
+//         path : "/about",
+//         element : <About/>
 
-      }
-    ]
-  }
-])
+//       },
+//       {
+
+//         path : "/contact",
+//         element : <Contact/>
+
+//       }
+//     ]
+//   }
+// ])
+
+//method 2 : by createRoutesFromElements and createBrowserRouter to set up routing in our app (nested) this is more readable and easier to understand than method 1
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout/>}>
+      <Route path="" element={<Home/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/contact" element={<Contact/>}/>
+    </Route>
+  )
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

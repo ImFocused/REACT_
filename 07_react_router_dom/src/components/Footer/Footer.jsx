@@ -1,4 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom' // functionalities from react router dom to create links and navigation in the header component
+
+
 export default function Footer() {
     return (
         <footer className="bg-white border-y">

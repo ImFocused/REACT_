@@ -9,9 +9,9 @@ function App() {
 
   return (
     <>
-    <Header />
-    <h1 className="bg-green-600 p-4">React Router DOM</h1>
-    <Footer />
+    {/* <Header /> */}
+    <h1 className="bg-green-600 p-4 text-center">React Router DOM</h1>
+    {/* <Footer /> */}
     </>
   )
 }

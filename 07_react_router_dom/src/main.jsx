@@ -8,7 +8,9 @@ import Home from './components/Home/home'
 import { createBrowserRouter } from "react-router-dom";
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/contact.jsx'
+import Users from './components/Users/Users.jsx'
 import { createRoutesFromElements, Route } from 'react-router-dom'
+import Github from './components/Github/Github.jsx'
 
 
 // method 1 : using createBrowserRouter and RouterProvider to set up routing in our app (nested)
@@ -47,6 +49,8 @@ const router = createBrowserRouter(
       <Route path="" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/user/:userid" element={<Users/>}/>
+      <Route path="/github" element={<Github/>}/>
     </Route>
   )
 )
